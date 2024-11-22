@@ -13,7 +13,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-background border-t mt-8">
+    <footer className="border-t mt-8">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -118,7 +118,7 @@ export function Footer() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          © 2023 TechSolutions. Todos os direitos reservados.
+          © 2024 TechSolutions. Todos os direitos reservados.
         </motion.div>
       </div>
     </footer>

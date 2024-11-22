@@ -5,16 +5,17 @@ import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedHeader } from "@/components/animated-header";
 import { Footer } from "@/components/footer";
+import AnimatedBackground from "@/components/animated-background";
 
 const glitchAnimation: Variants = {
   hidden: { skew: 0, opacity: 1 },
   visible: {
     skew: [0, -5, 5, 0],
-    opacity: [1, 0.8, 0.9, 1],
+    opacity: [1, 0.5, 0.9, 1],
     transition: {
-      duration: 0.2,
+      duration: 2.5,
       repeat: Infinity,
-      repeatType: "reverse",
+      repeatType: "mirror",
     },
   },
 };
@@ -23,6 +24,7 @@ export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen">
       <AnimatedHeader />
+      <AnimatedBackground />
       <main className="flex-grow flex items-center justify-center">
         <div className="container mx-auto px-4 py-16 mt-16 text-center">
           <motion.div

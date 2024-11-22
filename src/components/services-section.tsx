@@ -1,15 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import AnimatedBackground from "./animated-background";
 
 const services = [
   {
@@ -63,10 +64,11 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="servicos" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="servicos" className="py-20 relative overflow-hidden">
+      <AnimatedBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center text-blue-600"
+          className="text-4xl font-bold mb-12 text-center text-foreground"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}

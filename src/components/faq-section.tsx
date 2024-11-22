@@ -4,13 +4,14 @@ import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Torus } from "@react-three/drei";
+import { OrbitControls, Torus, Text } from "@react-three/drei";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import AnimatedBackground from "./animated-background";
 
 const faqs = [
   {
@@ -46,14 +47,23 @@ const faqs = [
 
 function AnimatedTorus() {
   return (
-    <Canvas style={{ height: "200px" }}>
+    <Canvas style={{ height: "500px" }}>
       <Suspense fallback={null}>
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={1} />
         <pointLight position={[10, 10, 10]} />
         <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={5} />
         <Torus args={[1, 0.4, 16, 100]}>
-          <meshStandardMaterial color="#3B82F6" />
+          <meshStandardMaterial color="#7897db" />
         </Torus>
+        <Text
+          position={[0, 0, 0]}
+          fontSize={0.3}
+          color="#3B82F6"
+          anchorX="center"
+          anchorY="middle"
+        >
+          FAQ
+        </Text>
       </Suspense>
     </Canvas>
   );
@@ -66,8 +76,9 @@ export function FAQSection() {
   });
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative overflow-hidden">
+      <AnimatedBackground />
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
           className="text-4xl font-bold mb-12 text-center text-foreground"
           initial={{ opacity: 0, y: -20 }}
@@ -93,7 +104,11 @@ export function FAQSection() {
             transition={{ duration: 0.8 }}
             className="md:w-2/3"
           >
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full backdrop-blur-sm rounded-lg p-4"
+            >
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
                   <AccordionTrigger className="text-left text-lg font-semibold">
