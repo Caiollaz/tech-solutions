@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import AnimatedBackground from "./animated-background";
 
 const reasons = [
   {
@@ -24,6 +25,26 @@ const reasons = [
     description: "Atendimento personalizado e suporte contínuo",
     icon: "🤝",
   },
+  {
+    title: "Segurança",
+    description: "Priorizamos a segurança e proteção de dados da sua empresa",
+    icon: "🔒",
+  },
+  {
+    title: "Eficiência",
+    description: "Entregamos soluções rápidas e eficientes para o seu negócio",
+    icon: "⚡",
+  },
+  {
+    title: "Escalabilidade",
+    description: "Soluções que crescem junto com o seu negócio",
+    icon: "📈",
+  },
+  {
+    title: "Custo-benefício",
+    description: "Soluções que oferecem o melhor valor pelo seu investimento",
+    icon: "💰",
+  },
 ];
 
 export function WhyChooseUsSection() {
@@ -32,53 +53,41 @@ export function WhyChooseUsSection() {
     threshold: 0.1,
   });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
-
   return (
-    <section className="py-20 bg-gradient-to-b">
-      <div className="container mx-auto px-4">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <AnimatedBackground />
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center text-blue-600"
+          className="text-4xl font-bold mb-16 text-center text-foreground"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          Por que escolher a TechSolutions?
+          Por que escolher a DevSpark?
         </motion.h2>
         <motion.div
           ref={ref}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
+          variants={{
+            visible: { transition: { staggerChildren: 0.2 } },
+          }}
         >
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="text-center bg-white p-6 rounded-lg shadow-lg"
+              className="bg-background/30 backdrop-blur-md p-6 rounded-lg shadow-lg"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+              }}
             >
               <div className="text-4xl mb-4">{reason.icon}</div>
-              <h3 className="text-xl font-semibold mb-2 text-blue-700">
+              <h3 className="text-xl font-semibold mb-2 text-foreground">
                 {reason.title}
               </h3>
-              <p className="text-gray-600">{reason.description}</p>
+              <p className="text-muted-foreground">{reason.description}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export function Footer() {
   const socialLinks = [
-    { icon: FaFacebook, href: "#" },
-    { icon: FaTwitter, href: "#" },
-    { icon: FaLinkedin, href: "#" },
-    { icon: FaGithub, href: "#" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/caiolabella/" },
+    { icon: FaGithub, href: "https://github.com/caiollaz" },
   ];
 
   return (
@@ -23,7 +21,7 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              TechSolutions
+              DevSpark
             </motion.h3>
             <motion.p
               className="text-muted-foreground"
@@ -82,15 +80,7 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Email: contato@techsolutions.com
-            </motion.p>
-            <motion.p
-              className="text-muted-foreground mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Telefone: (11) 1234-5678
+              Email: contato@devspark.com
             </motion.p>
             <motion.div
               className="flex space-x-4"
@@ -118,7 +108,7 @@ export function Footer() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          © 2024 TechSolutions. Todos os direitos reservados.
+          © 2024 DevSpark. Todos os direitos reservados.
         </motion.div>
       </div>
     </footer>

@@ -37,6 +37,18 @@ const services = [
       "Segurança da informação",
     ],
   },
+  {
+    title: "Terceirização de TI (Outsourcing)",
+    description:
+      "Deixe-nos cuidar de toda a infraestrutura e suporte de TI da sua empresa, com qualidade e sem a necessidade de equipe interna.",
+    icon: "🖥️",
+    details: [
+      "Suporte técnico remoto e presencial",
+      "Aluguel e manutenção de equipamentos",
+      "Administração e implementação de servidores",
+      "Segurança de dados e servidores em nuvem",
+    ],
+  },
 ];
 
 export function ServicesSection() {
@@ -83,7 +95,15 @@ export function ServicesSection() {
           animate={inView ? "visible" : "hidden"}
         >
           {services.map((service, index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className={`${
+                index === 2
+                  ? "col-span-1 md:col-start-1 md:col-end-3 flex justify-center"
+                  : ""
+              }`}
+            >
               <Card className="h-full bg-card/50 backdrop-blur-sm">
                 <CardHeader>
                   <div className="text-4xl mb-4">{service.icon}</div>
@@ -100,7 +120,6 @@ export function ServicesSection() {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline">Saiba mais</Button>
                 </CardContent>
               </Card>
             </motion.div>

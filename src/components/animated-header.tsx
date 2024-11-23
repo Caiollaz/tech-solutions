@@ -33,7 +33,7 @@ export function AnimatedHeader() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            TechSolutions
+            DevSpark
           </motion.span>
         </Link>
         <nav className="flex items-center space-x-8">
@@ -57,7 +57,7 @@ export function AnimatedHeader() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Button asChild>
+            <Button asChild className="text-white">
               <Link href="/orcamento">Solicitar Orçamento</Link>
             </Button>
           </motion.div>

@@ -1,10 +1,7 @@
 "use client";
 
-import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Torus, Text } from "@react-three/drei";
 import {
   Accordion,
   AccordionContent,
@@ -45,30 +42,6 @@ const faqs = [
   },
 ];
 
-function AnimatedTorus() {
-  return (
-    <Canvas style={{ height: "500px" }}>
-      <Suspense fallback={null}>
-        <ambientLight intensity={1} />
-        <pointLight position={[10, 10, 10]} />
-        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={5} />
-        <Torus args={[1, 0.4, 16, 100]}>
-          <meshStandardMaterial color="#7897db" />
-        </Torus>
-        <Text
-          position={[0, 0, 0]}
-          fontSize={0.3}
-          color="#3B82F6"
-          anchorX="center"
-          anchorY="middle"
-        >
-          FAQ
-        </Text>
-      </Suspense>
-    </Canvas>
-  );
-}
-
 export function FAQSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -76,52 +49,45 @@ export function FAQSection() {
   });
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <AnimatedBackground />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 py-16 relative z-10">
         <motion.h2
-          className="text-4xl font-bold mb-12 text-center text-foreground"
+          className="text-4xl font-bold mb-16 text-center text-foreground"
           initial={{ opacity: 0, y: -20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           Perguntas Frequentes
         </motion.h2>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="md:w-1/3"
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="max-w-7xl mx-auto"
+        >
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full rounded-lg"
           >
-            <AnimatedTorus />
-          </motion.div>
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="md:w-2/3"
-          >
-            <Accordion
-              type="single"
-              collapsible
-              className="w-full backdrop-blur-sm rounded-lg p-4"
-            >
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left text-lg font-semibold">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
-        </div>
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border-b border-foreground/10 last:border-b-0"
+              >
+                <AccordionTrigger className="text-left text-lg font-semibold py-4 hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </section>
   );
