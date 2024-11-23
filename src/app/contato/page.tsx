@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { ContactInfo } from "@/components/contact-info";
 import { Footer } from "@/components/footer";
 
-export default function Contato() {
+export default function ContatoPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <AnimatedHeader />
