@@ -18,7 +18,7 @@ export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center overflow-hidden">
       <AnimatedBackground />
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div className="container mx-auto px-4 md:pt-12 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
           <motion.h1
             className="text-4xl md:text-6xl font-bold text-foreground mb-4"
