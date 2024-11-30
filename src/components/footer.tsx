@@ -21,7 +21,7 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              DevSpark
+              Legana
             </motion.h3>
             <motion.p
               className="text-muted-foreground"
@@ -80,7 +80,7 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Email: contato@devspark.com
+              Email: contato@legana.com.br
             </motion.p>
             <motion.div
               className="flex space-x-4"
@@ -108,7 +108,7 @@ export function Footer() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          © 2024 DevSpark. Todos os direitos reservados.
+          © 2024 Legana. Todos os direitos reservados.
         </motion.div>
       </div>
     </footer>

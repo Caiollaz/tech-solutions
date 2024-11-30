@@ -63,7 +63,7 @@ export function WhyChooseUsSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          Por que escolher a DevSpark?
+          Por que escolher a Legana?
         </motion.h2>
         <motion.div
           ref={ref}

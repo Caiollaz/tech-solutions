@@ -6,7 +6,7 @@ export function Header() {
     <header className="bg-background border-b">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold text-primary">
-          DevSpark
+          Legana
         </Link>
         <nav>
           <ul className="flex space-x-4">

@@ -104,7 +104,7 @@ export function ServicesSection() {
                   : ""
               }`}
             >
-              <Card className="h-full bg-card/50 backdrop-blur-sm">
+              <Card className="h-full border-none bg-card/50 backdrop-blur-md srounded-lg shadow-lg">
                 <CardHeader>
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <CardTitle className="text-2xl mb-2">

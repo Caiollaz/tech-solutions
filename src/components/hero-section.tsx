@@ -54,7 +54,7 @@ export function HeroSection() {
               <directionalLight position={[10, 10, 5]} intensity={1} />
               <Sphere args={[1, 100, 200]} scale={2.5}>
                 <MeshDistortMaterial
-                  color="#7897db"
+                  color="#8352d3"
                   attach="material"
                   distort={0.5}
                   speed={1.5}

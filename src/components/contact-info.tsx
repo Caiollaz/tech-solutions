@@ -12,8 +12,8 @@ import {
 const contactItems = [
   {
     icon: FaEnvelope,
-    text: "contato@devspark.com",
-    href: "mailto:contato@devspark.com",
+    text: "contato@legana.com.br",
+    href: "mailto:contato@legana.com.br",
   },
   { icon: FaPhone, text: "(41) 99728-0000", href: "tel:+5541997280000" },
   {
